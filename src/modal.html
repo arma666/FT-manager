@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <title></title>
+</head>
+
+<body>
+
+  <!-- Modal -->
+<div class="modal fade" id="mymod" data-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Connect settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">SSH server address</label>
+          <input type="text" class="form-control" id="host" placeholder="1.1.1.1">
+          <small class="form-text text-muted">You can use both ip and hostname</small>
+        </div>
+        <div class="form-group">
+          <label>User name</label>
+          <input type="text" class="form-control" id="user" placeholder="root">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" id="pass" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label>Port</label>
+          <input type="text" class="form-control" id="port" placeholder="22">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

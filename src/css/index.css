@@ -1,0 +1,58 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0px !important;
+  margin: 0px !important;
+  overflow: hidden;
+}
+html,body {
+  height: 100%;
+}
+#test {
+  background-color: #000;
+}
+
+
+
+.listu {
+  overflow-y:scroll;
+  height: 490px;
+}
+
+.listu::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+.users {
+  background-color: #28a745;
+  height: 100%;
+}
+.search {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.action {
+  background-color: rgba(255, 255, 255, 1);
+}
+.root {
+  width: 900px !important;
+}
+.log {
+  width: 540px !important;
+  resize: none;
+}
+.munav {
+  margin-bottom: 20px;
+  width: 540px !important;
+}
+.ucard {
+  width: 540px !important;
+}
+.icon {
+  width: 30px;
+}
+.setting {
+  position: fixed;
+  left: 720px;
+  top: 7px;
+  z-index: 20;
+}
