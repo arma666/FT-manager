@@ -6,7 +6,7 @@ function getusers() {
     let data = '';
     const req =  http.request({
       hostname: '127.0.0.1',
-      port: 15487,
+      port: global.port,
       method: 'OPTIONS',
       path: '/',
     }, (res) => {

@@ -10,6 +10,7 @@ const log = require('../ext/log.js');
 const process = require('process');
 const fs = require('fs');
 global.appRoot = path.resolve(__dirname);
+global.port = Math.floor(Math.random() * 10000)+20000;
 app.allowRendererProcessReuse = true;
 
 dialog.showErrorBox = function(title, content) {
@@ -129,7 +130,7 @@ ipcMain.on('getuser', (event, arg) => {
 
 
 function start(event) {
-  sshtun(Math.floor(Math.random() * 10000)+20000,8080).then(server => {
+  sshtun(global.port,8080).then(server => {
     log(event,'Connected to ssh server. Get user-list')
     serverLink = server
     console.log(serverLink);
