@@ -129,7 +129,7 @@ ipcMain.on('getuser', (event, arg) => {
 
 
 function start(event) {
-  sshtun(15487,8080).then(server => {
+  sshtun(Math.floor(Math.random() * 10000)+20000,8080).then(server => {
     log(event,'Connected to ssh server. Get user-list')
     serverLink = server
     console.log(serverLink);
