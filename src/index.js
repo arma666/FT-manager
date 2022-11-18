@@ -9,6 +9,7 @@ const log = require('../ext/log.js');
 //const getconfig = require('../ext/getconfig.js');
 const process = require('process');
 const fs = require('fs');
+global.appRoot = path.resolve(__dirname);
 app.allowRendererProcessReuse = true;
 
 dialog.showErrorBox = function(title, content) {
@@ -86,7 +87,7 @@ function connect(host,port,uobj) {
 }
 
 ipcMain.on('sendconfig', (event, conf) => {
-  fs.writeFile(__dirname +'/config.json', JSON.stringify(conf), (err) => {
+  fs.writeFile(global.appRoot +'/config.json', JSON.stringify(conf), (err) => {
     if (err) throw err;
     if (serverLink) {
       serverLink.close()

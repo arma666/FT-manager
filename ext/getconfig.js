@@ -8,11 +8,11 @@ function requireUncached(module) {
 function getconfig() {
   console.log('------------');
   return new Promise(function(resolve, reject) {
-    access('src/config.json', constants.F_OK, (err) => {
+    access(global.appRoot +'/config.json', constants.F_OK, (err) => {
       if (err == null){
         resolve({
           is: true,
-          conf: requireUncached('../src/config.json')
+          conf: requireUncached(global.appRoot +'/config.json')
         })
       } else {
         console.log(err);
