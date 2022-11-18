@@ -3,6 +3,7 @@ index=
 proxyhost=
 proxyport=0
 [options]
+localcursor=2
 use_encoding_0=1
 use_encoding_1=1
 use_encoding_2=1

@@ -57,16 +57,14 @@ function testport(ipt, event, user, uobj, dport) {
       else {
         log(event, 'Nope' )
         ipt.shift();
-        var newips = ipt;
         console.log(ipt);
-        testport(newips, event, user,uobj, dport)
+        testport(ipt, event, user,uobj, dport)
       }
     })
   }
   else {
     log(event, 'No local opened ports. Create tunel...' )
-    createTun(uobj,lport, dport)
-    lport++;
+    createTun(uobj,Math.floor(Math.random() * 10000)+10000, dport)
   }
 }
 
