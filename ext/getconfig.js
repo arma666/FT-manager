@@ -6,7 +6,6 @@ function requireUncached(module) {
 }
 
 function getconfig() {
-  console.log('------------');
   return new Promise(function(resolve, reject) {
     access(global.appRoot +'/config.json', constants.F_OK, (err) => {
       if (err == null){

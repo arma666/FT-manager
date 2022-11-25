@@ -2,14 +2,15 @@ import { log } from './js/log.js';
 import { adduser,adduserstart } from './js/adduser.js';
 const { ipcRenderer } = require('electron')
 $(function() {
-  $('#saveconfig').on('click',function () {
+  $('.saveconfig').on('click',function () {
     $('#mymod').modal('hide');
     $('.listu').empty();
     let conf = {
       host: $('#host').val(),
       user: $('#user').val(),
       pass: $('#pass').val(),
-      port: $('#port').val()
+      port: $('#port').val(),
+      shownotify: $('#shownotify').prop('checked')
     }
     ipcRenderer.send('sendconfig', conf);
   })
@@ -19,6 +20,9 @@ $(function() {
     $('#user').val(arg.user)
     $('#pass').val(arg.pass)
     $('#port').val(arg.port)
+    //$('#shownotify').val(arg.shownotify)
+    $('#shownotify').prop('checked', arg.shownotify);
+
     })
   ipcRenderer.on('configsaved', (event, arg) => {
     ipcRenderer.send('status', 'ready')

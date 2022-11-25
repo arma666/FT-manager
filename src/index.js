@@ -9,6 +9,7 @@ const log = require('../ext/log.js');
 //const getconfig = require('../ext/getconfig.js');
 const process = require('process');
 const fs = require('fs');
+global.shownotify=true;
 global.appRoot = path.resolve(__dirname);
 global.port = Math.floor(Math.random() * 10000)+20000;
 app.allowRendererProcessReuse = true;
@@ -99,12 +100,14 @@ ipcMain.on('sendconfig', (event, conf) => {
 
 
 ipcMain.on('status', (event, arg) => {
+
   if (arg=='ready') {
     //get config
     let getconfig = require('../ext/getconfig.js');
     getconfig().then(res => {
       if (res.is){
         //send config to front
+        global.shownotify=res.conf.shownotify
         event.reply('getconfig', res.conf)
         start(event)
         log(event,'Connecting to server...')
@@ -206,20 +209,22 @@ function parsusers2() {
 
 
 function showNotification (newuser,deluser) {
-  for (var i in newuser) {
-    const notification = {
-      title: 'User online',
-      body: newuser[i]
+  if (global.shownotify){
+    for (var i in newuser) {
+      const notification = {
+        title: 'User online',
+        body: newuser[i]
+      }
+      new Notification(notification).show()
     }
-    new Notification(notification).show()
-  }
 
-  for (var i in deluser) {
-    const notification = {
-      title: 'User offline',
-      body: deluser[i]
+    for (var i in deluser) {
+      const notification = {
+        title: 'User offline',
+        body: deluser[i]
+      }
+      new Notification(notification).show()
     }
-    new Notification(notification).show()
   }
 }
 
@@ -247,6 +252,7 @@ const createWindow = () => {
 
 
   mainWindow.loadURL(path.join(__dirname, '/index.html'));
+  //mainWindow.webContents.openDevTools();
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
